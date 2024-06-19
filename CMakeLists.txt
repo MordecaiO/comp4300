@@ -9,10 +9,12 @@ FetchContent_Declare(SFML
     GIT_REPOSITORY https://github.com/SFML/SFML.git
     GIT_TAG 2.6.x)
 FetchContent_MakeAvailable(SFML)
+find_package(SFML 2.6.1 REQUIRED COMPONENTS graphics)
+add_executable(comp4300 src/main.cpp)
 
-add_executable(main src/main.cpp)
-target_link_libraries(main PRIVATE sfml-graphics)
-target_compile_features(main PRIVATE cxx_std_17)
+target_link_libraries(comp4300 PRIVATE sfml-graphics)
+
+target_compile_features(comp4300 PRIVATE cxx_std_17)
 
 if(WIN32)
     add_custom_command(
